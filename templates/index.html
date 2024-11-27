@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南京云锦对外翻译标准化术语库</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/libs/antd/4.9.4/antd.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='yunjin5.jpg') }}");
+            background-size: 100% 60%;
+            background-repeat: no-repeat;
+            filter: opacity(1);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+      .page-title {
+            font-size: 70px;
+            font-family: 'STXingkai', cursive;
+            color: white;
+            -webkit-text-stroke: 1px black;
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            top: 25%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+      .page-container {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            position: relative;
+        }
+
+      .form-container-before-search {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            margin-left: 300px;
+        }
+
+        input[type="text"].before-search {
+            padding: 15px 20px;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+            font-size: 20px;
+            width: 400px;
+            transition: border-color 0.3s ease;
+            margin-right: 10px;
+            text-align: left;
+            background-color: #fff;
+            color: #333;
+        }
+
+        input[type="text"].before-search::placeholder {
+            color: #999;
+            font-size: 18px;
+        }
+
+        input[type="text"].before-search:focus {
+            border-color: #006400;
+        }
+
+        button[type="submit"].before-search {
+            background-color: #006400;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button[type="submit"].before-search::before {
+            content: "\1F50D";
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        button[type="submit"].before-search:hover {
+            background-color: #004d00;
+        }
+
+        /* 新增语言选择下拉框样式 */
+      .language-select {
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            width: 150px;
+            margin-right: 10px;
+            text-align: left;
+            background-color: #fff;
+            color: #333;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+      .language-select option {
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-title">南京云锦对外翻译标准化术语库</div>
+    <div class="page-container">
+        <form method="post" action="/search" class="form-container-before-search">
+            <!-- 新增语言选择下拉框 -->
+            <select name="language" class="language-select">
+                <option value="es">中译西</option>
+                <option value="ja">中译日</option>
+            </select>
+            <input type="text" name="query" placeholder="输入中文" required class="before-search">
+            <button type="submit" class="before-search ant-btn ant-btn-primary">Search</button>
+        </form>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
