@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南京云锦对外翻译标准化术语库 - 搜索结果</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/libs/antd/4.9.4/antd.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            background-image: url("{{ url_for('static', filename='yunjin3.jpg') }}");
+            background-size: 100% 140px;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-family: 'STXingkai', cursive;
+            color: rgb(248, 247, 247);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .page-title:hover {
+            cursor: pointer;
+            color: #006400;
+        }
+
+        .form-container-after-search {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"].after-search {
+            padding: 10px 15px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 16px;
+            width: 300px;
+            transition: border-color 0.3s ease;
+            background-color: #fff;
+            color: #333;
+        }
+
+        input[type="text"].after-search::placeholder {
+            color: #999;
+            font-size: 14px;
+        }
+
+        input[type="text"].after-search:focus {
+            border-color: #006400;
+        }
+
+        button[type="submit"].after-search {
+            background-color: #006400;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        button[type="submit"].after-search:hover {
+            background-color: #004d00;
+        }
+
+        .page-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .result-container {
+            flex: 1;
+            margin-right: 20px;
+            text-align: left;
+        }
+
+        .right-image-container {
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            margin-top: 70px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff; /* 白色填充 */
+            background-color: #000; /* 黑色背景 */
+            border: 2px solid #000; /* 黑色边框 */
+            padding: 5px; /* 内部填充以便看到白色箭头 */
+            opacity: 0.5; /* 设置透明度为50% */
+            cursor: pointer;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        .result-item {
+            font-size: 20px;
+            color: #8c0606;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .result-item:before {
+            content: " ";
+            color: #8c0606;
+        }
+
+        .result-item span {
+            margin-right: 10px;
+        }
+
+        .result-item1 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .result-item1:before {
+            content: "";
+            color: #ccc;
+        }
+
+        .result-item1 span {
+            margin-right: 10px;
+        }
+
+        .result-item2 {
+            font-size: 10px;
+            color: #a19999;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .result-item2:before {
+            content: "例句来源：";
+            color: #a19999;
+        }
+
+        .result-item2 span {
+            margin-right: 10px;
+        }
+        /* 翻译 */
+        .result-item3 {
+            font-size: 20px;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .result-item3 span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a href="/" class="page-title">南京云锦对外翻译标准化术语库——中译日</a>
+        <div class="form-container-after-search">
+            <form method="post" action="/search">
+                <input type="text" name="query" placeholder="再次输入中文" required class="after-search">
+                <button type="submit" class="after-search ant-btn ant-btn-primary">搜索</button>
+            </form>
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="result-container">
+            {% if result %}
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item">
+                <span>{{ query }}</span>
+            </div>
+            <div class="result-item3">
+                <span>{{ result.get('日语', '') }}</span>
+            </div>
+            <div class="result-item">
+                <span>定义 Meaning</span>
+            </div>
+            <div class="result-item1">
+                <span>{{ result.get('定义', '') }}</span>
+            </div>
+            <div class="result-item">
+                <span>例句 Example</span>
+            </div>
+            <div class="result-item1">
+                <span>{{ result.get('例句', '') }}</span>
+            </div>
+            <div class="result-item2">
+                <span>{{ result.get('例句出处', '') }}</span>
+            </div>
+            <div class="result-item">
+                <span>文化背景 Background</span>
+            </div>
+            <div class="result-item1">
+                <span>{{ result.get('文化背景', '') }}</span>
+            </div>
+            <div class="result-item1">
+                <span>{{ result.get('日文文化背景', '') }}</span>
+            </div>
+            {% else %}
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <div class="result-item1">
+                <span></span>
+            </div>
+            <p>未找到相关信息。</p>
+            {% endif %}
+        </div>
+        <!-- 新增用于显示图片的容器 -->
+        <div class="right-image-container" id="right-image">
+            <div class="arrow left" onclick="changeImage(-1)">&#10094;</div>
+            <div class="arrow right" onclick="changeImage(1)">&#10095;</div>
+        </div>
+    </div>
+    <footer></footer>
+    <script>
+        var queryValue = "{{ query }}";
+        var images;
+        if (queryValue === "云锦") {
+            images = [
+                '/static/yunjin1.png',
+                '/static/yunjin2.png',
+                '/static/yunjin3.jpg'
+            ];
+        } else if (queryValue === "妆花") {
+            images = [
+                '/static/zhuanghua.jpg',
+                '/static/zhuanghua2.jpg',
+                '/static/zhuanghua3.jpg'
+            ];
+        } else {
+            // 处理其他情况，设置为空数组且隐藏箭头元素
+            images = [];
+            // 获取左右箭头元素并设置为隐藏
+            var leftArrow = document.querySelector('.arrow.left');
+            var rightArrow = document.querySelector('.arrow.right');
+            if (leftArrow) {
+                leftArrow.style.display = 'none';
+            }
+            if (rightArrow) {
+                rightArrow.style.display = 'none';
+            }
+        }
+        var currentImageIndex = 0;
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            document.getElementById('right-image').style.backgroundImage = "url('" + images[currentImageIndex] + "')";
+        }
+        // 添加事件监听器，页面加载完成后默认点击一次右箭头
+        document.addEventListener('DOMContentLoaded', function() {
+            changeImage(1); // 默认点击右箭头
+        });
+    </script>
+</body>
+
+</html>
